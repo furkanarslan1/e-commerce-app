@@ -10,13 +10,13 @@ export default function Products({ product }) {
 
   return (
     <Link to={`products/:${id}`}>
-      <div className="hover:cursor-pointer ">
-        <div className="flex flex-col justify-center items-center gap-2">
-          <div className="flex flex-col items-center ">
+      <div className="hover:cursor-pointer">
+        <div className="flex flex-col justify-center items-center gap-2  ">
+          <div className="flex flex-col items-center justify-center">
             <img
               src={thumbnail}
               alt=""
-              className=" hover:scale-125 duration-500"
+              className=" hover:scale-125 h-42 lg:h-82 duration-500"
             />
             <p className="font-bold text-gray-500 ">{brand}</p>
           </div>
@@ -27,9 +27,9 @@ export default function Products({ product }) {
             ))}
             <p className="font-bold text-gray-400">{rating}</p>
           </div>
-          <p className="text-sm flex gap-3">
+          <p className="text-sm flex items-center gap-3">
             <del>{currenyUSD.format(price)}</del>
-            <span className="font-extrabold text-gray-500">
+            <span className="font-extrabold text-gray-500 text-[10px] lg:text-sm ">
               Save {discountPercentage}%
             </span>
           </p>

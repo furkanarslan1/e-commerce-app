@@ -140,10 +140,10 @@ export default function Home() {
         </Link>
       </div>
       <div className="border-b-2 pb-2">
-        <h6 className="lg:text-2xl pt-2 font-semibold ps-3">
+        <h6 className="lg:text-2xl pt-2 font-extrabold ps-3 ">
           The Most Popular Men Shirts
         </h6>
-        <div className="flex overflow-x-auto no-scrollbar items-center lg:py-4 px-2">
+        <div className="flex overflow-x-auto no-scrollbar items-center gap-2 lg:py-4 px-2">
           {mensShirtProducts &&
             mensShirtProducts.map((product) => (
               <Products key={product.id} product={product} />
@@ -196,7 +196,7 @@ export default function Home() {
         </Link>
       </div>
       <div>
-        <h6 className="lg:text-2xl pt-2 font-semibold ps-3">
+        <h6 className="lg:text-2xl pt-2 font-extrabold ps-3  ">
           The Most Popular Furniture
         </h6>
         <div className="flex overflow-x-auto no-scrollbar items-center lg:py-4 px-2">
@@ -259,7 +259,7 @@ export default function Home() {
       </div>
       {/* className="flex overflow-x-auto no-scrollbar items-center lg:py-4 px-2" */}
       <div>
-        <h6 className="lg:text-2xl pt-2 font-semibold ps-3">
+        <h6 className="lg:text-2xl pt-2 font-extrabold ps-3">
           This Year’s Most Loved Dresses Are Here!
         </h6>
         <div className="grid grid-cols-2 md:grid-cols-5 overflow-hidden">
