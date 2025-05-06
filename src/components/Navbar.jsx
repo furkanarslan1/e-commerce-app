@@ -8,11 +8,11 @@ export default function Navbar() {
   return (
     <nav className="px-6 py-4 bg-[#48cae4]">
       <div className="flex items-center justify-between">
-        <div className="flex  48cae4 gap-2 lg:text-3xl">
-          <PiShoppingBagFill className="lg:text-4xl" />
-          <p>e-commerce</p>
+        <div className="flex text-4xl  gap-6 lg:gap-2 lg:text-3xl">
+          <PiShoppingBagFill className="text-5xl lg:text-4xl" />
+          <p className="font-extrabold">e-commerce</p>
         </div>
-        <div>
+        <div className="hidden md:block">
           <input
             type="text"
             placeholder=" Search products"
@@ -20,7 +20,7 @@ export default function Navbar() {
           />
         </div>
 
-        <div className="flex items-center lg:gap-12 text-xl">
+        <div className=" items-center lg:gap-12 text-xl hidden md:flex">
           <div>
             <Link>
               <MdFavorite className="lg:text-3xl " />

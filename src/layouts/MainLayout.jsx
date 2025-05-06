@@ -12,7 +12,6 @@ export default function MainLayout() {
   useEffect(() => {
     dispatch(getCategories());
   }, [dispatch]);
-  console.log(categoryList);
 
   const scrollRef = useRef();
   const scrollLeft = () => {

@@ -1,6 +1,23 @@
 @import "tailwindcss";
 
+* {
+  box-sizing: border-box;
+}
+
 .no-scrollbar {
   -ms-overflow-style: none; /* IE ve Edge */
   scrollbar-width: none; /* Firefox */
+}
+
+@keyframes scroll-right {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-scroll-right {
+  animation: scroll-right 60s linear infinite;
 }
