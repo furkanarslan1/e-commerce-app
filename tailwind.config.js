@@ -7,6 +7,12 @@ module.exports = {
 
         mavi2: "#90e0ef",
       },
+      scrollSnapType: {
+        x: "x mandatory",
+      },
+      scrollSnapAlign: {
+        center: "center",
+      },
     },
   },
   plugins: [],

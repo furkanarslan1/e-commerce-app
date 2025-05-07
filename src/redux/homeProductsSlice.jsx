@@ -3,7 +3,7 @@ import requests from "../api/apiClient";
 
 export const getSuperPrice = createAsyncThunk("getSuperPrice", async () => {
   try {
-    const response = await requests.products.item();
+    const response = await requests.categories.smartphones();
     return response;
   } catch (error) {
   } finally {

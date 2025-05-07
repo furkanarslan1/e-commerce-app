@@ -9,7 +9,7 @@ export default function Products({ product }) {
   const discountedPrice = price * (1 - discountPercentage / 100);
 
   return (
-    <Link to={`products/:${id}`}>
+    <Link to={`products/${id}`}>
       <div className="hover:cursor-pointer">
         <div className="flex flex-col justify-center items-center gap-2  ">
           <div className="flex flex-col items-center justify-center">

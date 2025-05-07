@@ -7,7 +7,7 @@ const methods = {
 };
 
 const products = {
-  item: () => methods.get("products/category/smartphones"),
+  item: (id) => methods.get(`products/${id}`),
   list: () => methods.get("products"),
 };
 
@@ -20,6 +20,7 @@ const categories = {
   womens_dresses: () => methods.get("products/category/womens-dresses"),
   womens_shoes: () => methods.get("products/category/womens-shoes"),
   tops: () => methods.get("products/category/tops"),
+  smartphones: () => methods.get("products/category/smartphones"),
 };
 
 const requests = {
