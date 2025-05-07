@@ -61,7 +61,7 @@ export default function Home() {
             </div>
           </div>
         </Link>
-        <Link to="categories/camera">
+        <Link to="categories/laptops">
           <div className="flex bg-[#F3F5F4] flex-col md:flex-row  text-white  items-center hover:cursor-pointer lg:pb-17">
             <img
               src="/images/photo.jpg"
@@ -76,7 +76,7 @@ export default function Home() {
             </div>
           </div>
         </Link>
-        <Link to="categories/laptop">
+        <Link to="categories/laptops">
           <div className="flex flex-col md:flex-row bg-[#181818]   text-white  items-center hover:cursor-pointer lg:pb-23">
             <img
               src="/images/laptop.jpg"
@@ -106,7 +106,7 @@ export default function Home() {
             </div>
           </div>
         </Link>
-        <Link to="categories/decoration">
+        <Link to="categories/home-decoration">
           <div className="flex flex-col md:flex-row bg-[#E7EAE5]   text-white  items-center hover:cursor-pointer lg:pb-6">
             <img
               src="/images/decaration.jpg"
@@ -121,7 +121,7 @@ export default function Home() {
             </div>
           </div>
         </Link>
-        <Link to="categories/kitchen">
+        <Link to="categories/kitchen-accessories">
           <div className="flex flex-col md:flex-row bg-[#E4E4E4]  text-white  items-center hover:cursor-pointer lg:pb-6">
             <img
               src="/images/kitchen.jpg"
@@ -152,7 +152,7 @@ export default function Home() {
       </div>
 
       <div className="grid  grid-cols-1 md:grid-cols-2 lg:grid-cols-3  overflow-hidden ">
-        <Link to="categories/special-offer">
+        <Link to="sale/special-offer">
           <div className="flex items-center justify-center bg-gradient-to-r from-red-800 to-red-400 h-50 ">
             <p className="text-white text-4xl rotate-150  ">
               <FaArrowLeftLong />
@@ -177,14 +177,14 @@ export default function Home() {
             </p>
           </div>
         </Link>
-        <Link to="categories/products-on-sale">
+        <Link to="sale/products-on-sale">
           <div className="flex items-center justify-center bg-gradient-to-r from-blue-900 to-blue-400 h-50 ">
             <p className="font-extrabold text-4xl  text-center  text-white">
               Products on Sale
             </p>
           </div>
         </Link>
-        <Link to="categories/huge-sale">
+        <Link to="sale/huge-sale">
           <div className="flex items-center justify-center bg-gradient-to-r from-green-900 to-green-400 h-50 ">
             <p className="font-extrabold text-4xl  text-center  text-white">
               Huge Sale

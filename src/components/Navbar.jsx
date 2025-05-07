@@ -8,10 +8,13 @@ export default function Navbar() {
   return (
     <nav className="px-6 py-4 bg-[#48cae4]">
       <div className="flex items-center justify-between">
-        <div className="flex text-4xl  gap-6 lg:gap-2 lg:text-3xl">
-          <PiShoppingBagFill className="text-5xl lg:text-4xl" />
-          <p className="font-extrabold">e-commerce</p>
-        </div>
+        <Link to="/">
+          <div className="flex text-4xl  gap-6 lg:gap-2 lg:text-3xl">
+            <PiShoppingBagFill className="text-5xl lg:text-4xl" />
+            <p className="font-extrabold">e-commerce</p>
+          </div>
+        </Link>
+
         <div className="hidden md:block">
           <input
             type="text"

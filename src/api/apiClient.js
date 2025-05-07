@@ -11,6 +11,10 @@ const products = {
   list: () => methods.get("products"),
 };
 
+const category = {
+  list: (slug) => methods.get(`products/category/${slug}`),
+};
+
 const categories = {
   list: () => methods.get("products/categories"),
   menshirt: () => methods.get("products/category/mens-shirts"),
@@ -26,6 +30,7 @@ const categories = {
 const requests = {
   categories,
   products,
+  category,
 };
 
 export default requests;

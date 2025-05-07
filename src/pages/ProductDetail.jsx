@@ -115,7 +115,7 @@ export default function ProductDetail() {
           <FaAngleLeft />
         </button>
         <button
-          className="absolute right-145 top-1/2 transform -translate-y-1/2 z-10 bg-opacity-50 hover:cursor-pointer lg:text-4xl hidden lg:block"
+          className="absolute right-115 top-1/2 transform -translate-y-1/2 z-10 bg-opacity-50 hover:cursor-pointer lg:text-4xl hidden lg:block"
           onClick={() =>
             selectedImage < images.length - 1 &&
             scrollToImage(selectedImage + 1)
@@ -147,7 +147,7 @@ export default function ProductDetail() {
             ref={scroolRef}
             onScroll={handleScroll}
           >
-            <div className="flex">
+            <div className="flex lg:w-[900px]">
               {images?.map((image, i) => (
                 <div
                   key={i}
@@ -254,7 +254,7 @@ export default function ProductDetail() {
           <div className="flex items-center gap-16  pt-2 pb-8">
             <button className="flex items-center gap-4 text-white px-3 py-2 rounded-2xl bg-gradient-to-r from-blue-900 to-blue-500  hover:from-blue-400 hover:to-blue-900 transition-all hover:cursor-pointer  duration-800">
               <span className="font-bold ">Add to Cart</span>
-              <BsFillBasket3Fill className=" text-4xl" />
+              <BsFillBasket3Fill className="lg:text-4xl text-6xl" />
             </button>
             <button className="hover:cursor-pointer">
               <FaHeart className=" text-4xl text-[#48CAE4] hover:text-[#90E0EF] transition-all duration-500" />
@@ -264,28 +264,30 @@ export default function ProductDetail() {
       </div>
       <div className="lg:pt-10 py-4  px-4">
         <h4 className="font-bold text-2xl lg:text-4xl">Product Details</h4>
-        <div className="flex flex-col mt-3 border-1 border-[#0096C7] gap-4 rounded p-4 ">
-          <h6 className="font-bold  text-2xl">Technical Specifications</h6>
-          <p>
-            <span className="font-bold">Category:</span> {category}
+        <div className="flex flex-col mt-3 border-1 border-[#0096C7] gap-4 rounded p-4 overflow-hidden">
+          <h6 className="font-bold text-xl  lg:text-2xl">
+            Technical Specifications
+          </h6>
+          <p className="text-sm">
+            <span className="font-bold text-sm">Category:</span> {category}
           </p>
           <div className="flex items-center gap-1">
-            <p className="font-bold">Tags: </p>
+            <p className="font-bold text-sm">Tags: </p>
             {tags?.map((tag, i) => (
-              <p key={i}>
+              <p className="text-sm" key={i}>
                 {tag}
                 {i < tags.length - 1 ? "," : ""}
               </p>
             ))}
           </div>
           <p>
-            <span className="font-bold">Weight:</span> {weight}
+            <span className="font-bold text-sm">Weight:</span> {weight}
           </p>
-          <p>
-            <span className="font-bold">Warranty Information: </span>{" "}
+          <p className="text-sm">
+            <span className="font-bold ">Warranty Information: </span>{" "}
             {warrantyInformation}
           </p>
-          <div className="flex items-center gap-1">
+          <div className="flex items-center gap-1  text-sm">
             <p className="font-bold">Dimensions: </p>
             {dimensions &&
               Object.entries(dimensions).map(([key, value], i) => (
