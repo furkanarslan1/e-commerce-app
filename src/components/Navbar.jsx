@@ -35,7 +35,7 @@ export default function Navbar() {
             </Link>
           </div>
           <div>
-            <Link>
+            <Link to="cart">
               <HiShoppingCart className="lg:text-3xl" />
             </Link>
           </div>

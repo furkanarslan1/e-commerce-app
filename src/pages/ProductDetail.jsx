@@ -11,6 +11,12 @@ import { FaCirclePlus } from "react-icons/fa6";
 import { FaCircleMinus } from "react-icons/fa6";
 import { FaAngleLeft } from "react-icons/fa";
 import { FaUser } from "react-icons/fa";
+import {
+  addToCart,
+  decreaseQuantity,
+  increaseQuantity,
+  removeFromCart,
+} from "../redux/cartSlice";
 
 export default function ProductDetail() {
   const { id } = useParams();
@@ -47,16 +53,20 @@ export default function ProductDetail() {
 
   const discountedPrice = price * (1 - discountPercentage / 100);
 
-  const [productQuantity, setProductQuantity] = useState(1);
-
   const [selectedImage, setSelectedImage] = useState(0);
 
+  const [pcs, setPcs] = useState(1);
+
   const quantityPlus = () => {
-    setProductQuantity((prev) => prev + 1);
+    setPcs((prev) => prev + 1);
   };
   const quantityMinus = () => {
-    setProductQuantity((prev) => prev - 1);
+    setPcs((prev) => prev - 1);
   };
+
+  const isInCart = useSelector((store) =>
+    store.cart.cartItems?.some((cartItem) => cartItem.id === items.id)
+  );
 
   const scroolRef = useRef();
 
@@ -239,11 +249,11 @@ export default function ProductDetail() {
           </div>
 
           <div className="flex items-center gap-4 p-2 lg:gap-6 pt-2">
-            <button onClick={quantityMinus} disabled={productQuantity < 2}>
+            <button onClick={quantityMinus} disabled={pcs < 2}>
               {" "}
               <FaCircleMinus className="lg:text-2xl text-3xl text-[#0096C7] hover:cursor-pointer" />
             </button>
-            <p>{productQuantity} pcs</p>
+            <p>{pcs} pcs</p>
 
             <button onClick={quantityPlus}>
               {" "}
@@ -252,10 +262,24 @@ export default function ProductDetail() {
           </div>
 
           <div className="flex items-center gap-16  pt-2 pb-8">
-            <button className="flex items-center gap-4 text-white px-3 py-2 rounded-2xl bg-gradient-to-r from-blue-900 to-blue-500  hover:from-blue-400 hover:to-blue-900 transition-all hover:cursor-pointer  duration-800">
-              <span className="font-bold ">Add to Cart</span>
-              <BsFillBasket3Fill className="lg:text-4xl text-6xl" />
-            </button>
+            {isInCart ? (
+              <button
+                className="flex items-center gap-4 text-white px-3 py-2 rounded-2xl bg-gradient-to-r from-blue-900 to-blue-500  hover:from-blue-400 hover:to-blue-900 transition-all hover:cursor-pointer  duration-800"
+                onClick={() => dispatch(removeFromCart(items.id))}
+              >
+                <span className="font-bold ">Remove from cart</span>
+                <BsFillBasket3Fill className="lg:text-4xl text-6xl" />
+              </button>
+            ) : (
+              <button
+                className="flex items-center gap-4 text-white px-3 py-2 rounded-2xl bg-gradient-to-r from-blue-900 to-blue-500  hover:from-blue-400 hover:to-blue-900 transition-all hover:cursor-pointer  duration-800"
+                onClick={() => dispatch(addToCart({ ...items, quantity: pcs }))}
+              >
+                <span className="font-bold ">Add to Cart</span>
+                <BsFillBasket3Fill className="lg:text-4xl text-6xl" />
+              </button>
+            )}
+
             <button className="hover:cursor-pointer">
               <FaHeart className=" text-4xl text-[#48CAE4] hover:text-[#90E0EF] transition-all duration-500" />
             </button>

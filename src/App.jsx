@@ -5,6 +5,7 @@ import Home from "./pages/Home";
 import ProductDetail from "./pages/ProductDetail";
 import Category from "./pages/categories/Category";
 import HugeSale from "./pages/categories/HugeSale";
+import Cart from "./pages/Cart";
 
 export const router = createBrowserRouter([
   {
@@ -22,6 +23,7 @@ export const router = createBrowserRouter([
         children: [{ path: ":slug", element: <Category /> }],
       },
       { path: "sale/:saletips", element: <HugeSale /> },
+      { path: "cart", element: <Cart /> },
     ],
   },
 ]);
