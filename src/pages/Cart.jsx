@@ -3,6 +3,8 @@ import { useDispatch, useSelector } from "react-redux";
 import CartItem from "../components/CartItem";
 import { currenyUSD } from "../utils/format";
 import { FaArrowCircleRight } from "react-icons/fa";
+import { FaTrash } from "react-icons/fa";
+import { clearCart } from "../redux/cartSlice";
 
 export default function Cart() {
   const dispatch = useDispatch();
@@ -26,12 +28,13 @@ export default function Cart() {
     <div className="">
       <div className="p-2 lg:p-6 lg:max-w-5xl lg:mx-auto ">
         <div className="flex flex-col gap-2 items-center ">
-          <h1 className="font-extrabold text-4xl  text-[#0096C7]">
+          <h1 className="font-extrabold text-xl lg:text-4xl  text-[#0096C7]">
             My Shopping Cart
           </h1>
           <p className="font-bold text-gray-500 text-sm">
             ({cartItems.length} product){" "}
           </p>
+
           <p className="text-gray-500 font-bold">
             Cart Total:
             <span className="text-green-700 ps-1">{totalCost}</span>
@@ -39,6 +42,14 @@ export default function Cart() {
         </div>
 
         <div className="pt-8 flex flex-col gap-4">
+          <div>
+            <button
+              className="cursor-pointer text-gray-600 border-1 border-gray-300 px-4 rounded-xl font-bold text-md  hover:bg-red-600 hover:text-white transition-all duration-500  "
+              onClick={() => dispatch(clearCart())}
+            >
+              <p>Clear Cart</p>
+            </button>
+          </div>
           {cartItems?.map((item) => (
             <CartItem key={item.id} item={item} />
           ))}
@@ -53,7 +64,7 @@ export default function Cart() {
               </p>
             </div>
 
-            <div className="bg-[#0077B6] p-8 rounded-2xl text-white flex items-center gap-6 cursor-pointer">
+            <div className="bg-[#0077B6] p-8 rounded-2xl text-white flex items-center gap-6 cursor-pointer mt-4 lg:mt-0">
               <p> Continue to Checkout</p>
               <button className="">
                 <FaArrowCircleRight className="text-2xl" />
