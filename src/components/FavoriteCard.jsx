@@ -2,9 +2,32 @@ import React from "react";
 import { FaStar } from "react-icons/fa";
 import { currenyUSD } from "../utils/format";
 import { Link } from "react-router";
+import { useDispatch, useSelector } from "react-redux";
+import { CiHeart } from "react-icons/ci";
+import { FaHeart } from "react-icons/fa";
+import { addToFavorite, removeFromFavorite } from "../redux/favoriteSlice";
 
 export default function FavoriteCard({ favorite }) {
   const { title, price, rating, thumbnail, id } = favorite;
+
+  const dispatch = useDispatch();
+
+  const handleAddFavorite = (e) => {
+    e.stopPropagation();
+    e.preventDefault();
+    dispatch(addToFavorite(favorite));
+  };
+
+  const handleRemoveFavorite = (e) => {
+    e.stopPropagation();
+    e.preventDefault();
+    dispatch(removeFromFavorite(favorite));
+  };
+
+  const isInFavorite = useSelector((store) =>
+    store.favorites.favoriteList.find((item) => item.id === favorite.id)
+  );
+
   return (
     <Link
       to={`/products/${id}`}
@@ -24,9 +47,21 @@ export default function FavoriteCard({ favorite }) {
 
           <p>{rating}</p>
         </div>
-        <p className="text-green-700 text-[12px] lg:text-[14px]">
-          {currenyUSD.format(price)}
-        </p>
+        <div className="flex items-center gap-4">
+          <p className="text-green-700 text-[12px] lg:text-[14px]">
+            {currenyUSD.format(price)}
+          </p>
+          <button
+            onClick={isInFavorite ? handleRemoveFavorite : handleAddFavorite}
+            className="cursor-pointer "
+          >
+            {isInFavorite ? (
+              <FaHeart className="text-blue-500 text-md hover:text-amber-300 hover:scale-130 duration-300" />
+            ) : (
+              <CiHeart className="text-md hover:text-blue-500 hover:scale-130 duration-300" />
+            )}
+          </button>
+        </div>
       </div>
     </Link>
   );

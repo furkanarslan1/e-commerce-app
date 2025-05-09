@@ -3,8 +3,11 @@ import { PiShoppingBagFill } from "react-icons/pi";
 import { Link } from "react-router";
 import { MdFavorite } from "react-icons/md";
 import { HiShoppingCart } from "react-icons/hi";
+import { useSelector } from "react-redux";
 
 export default function Navbar() {
+  const { favoriteList } = useSelector((store) => store.favorites);
+
   return (
     <nav className="px-6 py-4 bg-[#48cae4]">
       <div className="flex items-center justify-between">
@@ -26,7 +29,11 @@ export default function Navbar() {
         <div className=" items-center lg:gap-12 text-xl hidden md:flex">
           <div>
             <Link to="favorites">
-              <MdFavorite className="lg:text-3xl " />
+              <MdFavorite
+                className={`text-3xl ${
+                  favoriteList?.length > 0 ? `text-blue-600 ` : `text-black `
+                }`}
+              />
             </Link>
           </div>
           <div>
