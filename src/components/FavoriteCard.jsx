@@ -56,7 +56,7 @@ export default function FavoriteCard({ favorite }) {
             className="cursor-pointer "
           >
             {isInFavorite ? (
-              <FaHeart className="text-blue-500 text-md hover:text-amber-300 hover:scale-130 duration-300" />
+              <FaHeart className="text-blue-500 text-md  hover:scale-130 duration-300" />
             ) : (
               <CiHeart className="text-md hover:text-blue-500 hover:scale-130 duration-300" />
             )}

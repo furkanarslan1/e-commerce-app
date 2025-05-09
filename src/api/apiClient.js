@@ -6,6 +6,10 @@ const methods = {
   get: (url) => axios.get(url).then((response) => response.data),
 };
 
+const search = {
+  search: (item) => methods.get(`products/search?q=${item}`),
+};
+
 const products = {
   item: (id) => methods.get(`products/${id}`),
   list: () => methods.get("products"),
@@ -31,6 +35,7 @@ const requests = {
   categories,
   products,
   category,
+  search,
 };
 
 export default requests;

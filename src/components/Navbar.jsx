@@ -1,12 +1,36 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { PiShoppingBagFill } from "react-icons/pi";
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
 import { MdFavorite } from "react-icons/md";
 import { HiShoppingCart } from "react-icons/hi";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { FaSearch } from "react-icons/fa";
+import { getSearch } from "../redux/searchSlice";
 
 export default function Navbar() {
   const { favoriteList } = useSelector((store) => store.favorites);
+  const [searchInfo, setSearchInfo] = useState("");
+
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      if (searchInfo.trim().length > 1) {
+        dispatch(getSearch(searchInfo));
+        navigate("/search");
+      }
+    }, 50);
+    return () => clearTimeout(timer);
+  }, [searchInfo, dispatch, navigate]);
+
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
+  //   if (searchInfo?.trim()) {
+  //     dispatch(getSearch(searchInfo));
+  //     navigate("/search");
+  //   }
+  // };
 
   return (
     <nav className="px-6 py-4 bg-[#48cae4]">
@@ -19,11 +43,20 @@ export default function Navbar() {
         </Link>
 
         <div className="hidden md:block">
-          <input
-            type="text"
-            placeholder=" Search products"
-            className="bg-white lg:w-180 rounded-2xl lg:py-2 lg:px-4 outline-none"
-          />
+          {/* <form onSubmit={handleSubmit}> */}
+          <div className="flex items-center gap-2">
+            <input
+              type="text"
+              placeholder=" Search products"
+              className="bg-white lg:w-180 rounded-2xl lg:py-2 lg:px-4 outline-none"
+              value={searchInfo}
+              onChange={(e) => setSearchInfo(e.target.value)}
+            />
+            {/* <button type="submit" className="text-2xl cursor-pointer">
+              <FaSearch />
+            </button> */}
+          </div>
+          {/* </form> */}
         </div>
 
         <div className=" items-center lg:gap-12 text-xl hidden md:flex">

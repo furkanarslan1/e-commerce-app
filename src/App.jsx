@@ -7,6 +7,7 @@ import Category from "./pages/categories/Category";
 import HugeSale from "./pages/categories/HugeSale";
 import Cart from "./pages/Cart";
 import Favorites from "./pages/Favorites";
+import Search from "./pages/Search";
 
 export const router = createBrowserRouter([
   {
@@ -26,6 +27,7 @@ export const router = createBrowserRouter([
       { path: "sale/:saletips", element: <HugeSale /> },
       { path: "cart", element: <Cart /> },
       { path: "favorites", element: <Favorites /> },
+      { path: "search", element: <Search /> },
     ],
   },
 ]);

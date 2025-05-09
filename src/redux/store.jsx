@@ -6,6 +6,7 @@ import { categorySlice } from "./categorySlice";
 import { discountSlice } from "./discountSlice";
 import { cartSlice } from "./cartSlice";
 import { favoriteSlice } from "./favoriteSlice";
+import { searchSlice } from "./searchSlice";
 
 export const store = configureStore({
   reducer: {
@@ -16,5 +17,6 @@ export const store = configureStore({
     discount: discountSlice.reducer,
     cart: cartSlice.reducer,
     favorites: favoriteSlice.reducer,
+    search: searchSlice.reducer,
   },
 });
