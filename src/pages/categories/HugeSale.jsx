@@ -26,7 +26,7 @@ export default function HugeSale() {
       <h1 className="font-extrabold text-2xl lg:text-5xl pb-4 pt-2 ps-3 inline-block text-transparent bg-clip-text bg-gradient-to-r from-blue-700 to-red-600">
         {saletips}
         <span className=" font-extrabold text-2xl lg:text-5xl pb-4 pt-2 ps-3  text-transparent bg-clip-text bg-gradient-to-r from-red-700 to-blue-600 transform rotate-25 inline-block">
-          75%
+          {discount}%
         </span>
       </h1>
       <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-col-6 px-6 gap-6">

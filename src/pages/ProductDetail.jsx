@@ -11,12 +11,9 @@ import { FaCirclePlus } from "react-icons/fa6";
 import { FaCircleMinus } from "react-icons/fa6";
 import { FaAngleLeft } from "react-icons/fa";
 import { FaUser } from "react-icons/fa";
-import {
-  addToCart,
-  decreaseQuantity,
-  increaseQuantity,
-  removeFromCart,
-} from "../redux/cartSlice";
+import { addToCart, removeFromCart } from "../redux/cartSlice";
+import { addToFavorite, removeFromFavorite } from "../redux/favoriteSlice";
+import { CiHeart } from "react-icons/ci";
 
 export default function ProductDetail() {
   const { id } = useParams();
@@ -101,6 +98,22 @@ export default function ProductDetail() {
     });
     setSelectedImage(index);
   };
+
+  const handleAddFavorite = (e) => {
+    e.stopPropagation();
+    e.preventDefault();
+    dispatch(addToFavorite(items));
+  };
+
+  const handleRemoveFavorite = (e) => {
+    e.stopPropagation();
+    e.preventDefault();
+    dispatch(removeFromFavorite(items));
+  };
+
+  const isInFavorite = useSelector((store) =>
+    store.favorites.favoriteList.find((item) => item.id === items.id)
+  );
 
   return (
     <div className="lg:container lg:mx-auto lg:px-28 lg:py-14 ">
@@ -280,8 +293,15 @@ export default function ProductDetail() {
               </button>
             )}
 
-            <button className="hover:cursor-pointer">
-              <FaHeart className=" text-4xl text-[#48CAE4] hover:text-[#90E0EF] transition-all duration-500" />
+            <button
+              onClick={isInFavorite ? handleRemoveFavorite : handleAddFavorite}
+              className="cursor-pointer "
+            >
+              {isInFavorite ? (
+                <FaHeart className="text-blue-500 text-2xl hover:text-amber-300 hover:scale-130 duration-300" />
+              ) : (
+                <CiHeart className="text-3xl hover:text-blue-500 hover:scale-130 duration-300" />
+              )}
             </button>
           </div>
         </div>

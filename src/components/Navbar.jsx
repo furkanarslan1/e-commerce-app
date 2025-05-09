@@ -25,7 +25,7 @@ export default function Navbar() {
 
         <div className=" items-center lg:gap-12 text-xl hidden md:flex">
           <div>
-            <Link>
+            <Link to="favorites">
               <MdFavorite className="lg:text-3xl " />
             </Link>
           </div>

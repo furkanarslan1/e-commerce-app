@@ -4,6 +4,10 @@ import { currenyUSD } from "../utils/format";
 import { FaRegHeart } from "react-icons/fa";
 import { BsFillBasket3Fill } from "react-icons/bs";
 import { Link } from "react-router";
+import { useDispatch, useSelector } from "react-redux";
+import { FaHeart } from "react-icons/fa";
+import { CiHeart } from "react-icons/ci";
+import { addToFavorite, removeFromFavorite } from "../redux/favoriteSlice";
 
 export default function CategoryItem({ categoryItem }) {
   const {
@@ -17,6 +21,24 @@ export default function CategoryItem({ categoryItem }) {
     reviews,
     thumbnail,
   } = categoryItem;
+
+  const dispatch = useDispatch();
+
+  const handleAddFavorite = (e) => {
+    e.stopPropagation();
+    e.preventDefault();
+    dispatch(addToFavorite(categoryItem));
+  };
+
+  const handleRemoveFavorite = (e) => {
+    e.stopPropagation();
+    e.preventDefault();
+    dispatch(removeFromFavorite(categoryItem));
+  };
+
+  const isInFavorite = useSelector((store) =>
+    store.favorites.favoriteList.find((item) => item.id === categoryItem.id)
+  );
   return (
     <Link to={`/products/${id}`}>
       <div className="text-black flex flex-col justify-center gap-2 border-1 rounded-2xl p-6 h-[300px] lg:h-[500px]   cursor-pointer">
@@ -46,8 +68,15 @@ export default function CategoryItem({ categoryItem }) {
             {currenyUSD.format(price)}
           </p>
 
-          <button className="hover:cursor-pointer text-2xl text-[#0096C7] hover:text-amber-300 transition-all duration-500">
-            <FaRegHeart />
+          <button
+            onClick={isInFavorite ? handleRemoveFavorite : handleAddFavorite}
+            className="cursor-pointer "
+          >
+            {isInFavorite ? (
+              <FaHeart className="text-blue-500 text-2xl hover:text-amber-300 hover:scale-130 duration-300" />
+            ) : (
+              <CiHeart className="text-3xl hover:text-blue-500 hover:scale-130 duration-300" />
+            )}
           </button>
         </div>
       </div>
