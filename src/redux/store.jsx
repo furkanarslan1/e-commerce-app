@@ -19,6 +19,6 @@ export const store = configureStore({
     cart: cartSlice.reducer,
     favorites: favoriteSlice.reducer,
     search: searchSlice.reducer,
-    sing_in_up: sign_in_up_Slice.reducer,
+    sign_in_up: sign_in_up_Slice.reducer,
   },
 });

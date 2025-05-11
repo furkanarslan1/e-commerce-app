@@ -9,6 +9,7 @@ import Cart from "./pages/Cart";
 import Favorites from "./pages/Favorites";
 import Search from "./pages/Search";
 import SignUp from "./pages/SignUp";
+import SignIn from "./pages/SignIn";
 
 export const router = createBrowserRouter([
   {
@@ -30,6 +31,7 @@ export const router = createBrowserRouter([
       { path: "favorites", element: <Favorites /> },
       { path: "search", element: <Search /> },
       { path: "sign-up", element: <SignUp /> },
+      { path: "sign-in", element: <SignIn /> },
     ],
   },
 ]);

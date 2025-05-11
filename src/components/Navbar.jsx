@@ -32,6 +32,8 @@ export default function Navbar() {
   //   }
   // };
 
+  const { user } = useSelector((store) => store.sign_in_up);
+
   return (
     <nav className="px-6 py-4 bg-[#48cae4]">
       <div className="flex items-center justify-between">
@@ -80,7 +82,13 @@ export default function Navbar() {
             </Link>
           </div>
           <div className="lg:me-4 bg-[#0077b6] hover:text-black hover:bg-[#0096c7] p-3 rounded-2xl font-bold text-white hover:cursor-pointer duration-300">
-            <Link>Login</Link>
+            {user ? (
+              <Link>
+                <p>{user.username}</p>
+              </Link>
+            ) : (
+              <Link>Sign In</Link>
+            )}
           </div>
         </div>
       </div>
