@@ -41,7 +41,7 @@ export default function CategoryItem({ categoryItem }) {
   );
   return (
     <Link to={`/products/${id}`}>
-      <div className="text-black flex flex-col justify-center gap-2 border-1 rounded-2xl p-6 h-[300px] lg:h-[500px]   cursor-pointer">
+      <div className="text-black flex flex-col justify-center gap-2 border-1 rounded-2xl p-6 h-[250px] lg:h-[500px]   cursor-pointer">
         <div>
           <img src={thumbnail} alt={title} />
         </div>
@@ -53,7 +53,7 @@ export default function CategoryItem({ categoryItem }) {
         </div>
 
         <div className="flex  items-center justify-between">
-          <div className="flex items-center gap-1">
+          <div className="flex items-center gap-1 text-xs lg:text-xl">
             {Array.from({ length: rating }, (_, i) => (
               <FaStar className="text-yellow-400" />
             ))}
@@ -64,18 +64,18 @@ export default function CategoryItem({ categoryItem }) {
           </p>
         </div>
         <div className="flex items-center justify-between py-1">
-          <p className="text-green-700 font-bold text-2xl">
+          <p className="text-green-700 font-bold text-xs md:text-lg lg:text-2xl">
             {currenyUSD.format(price)}
           </p>
 
           <button
             onClick={isInFavorite ? handleRemoveFavorite : handleAddFavorite}
-            className="cursor-pointer "
+            className="cursor-pointer text-xl md:text-2xl lg:text-3xl"
           >
             {isInFavorite ? (
-              <FaHeart className="text-blue-500 text-2xl hover:text-amber-300 hover:scale-130 duration-300" />
+              <FaHeart className="text-blue-500  hover:text-amber-300 hover:scale-130 duration-300" />
             ) : (
-              <CiHeart className="text-3xl hover:text-blue-500 hover:scale-130 duration-300" />
+              <CiHeart className=" hover:text-blue-500 hover:scale-130 duration-300" />
             )}
           </button>
         </div>

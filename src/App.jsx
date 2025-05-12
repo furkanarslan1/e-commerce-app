@@ -41,8 +41,7 @@ export const router = createBrowserRouter([
         path: "user",
         element: <UserLayout />,
         children: [
-          { index: true, element: <User /> },
-          { path: "info", element: <UserInfo /> },
+          { index: true, element: <UserInfo /> },
           { path: "user-info-change", element: <UserInfoChange /> },
         ],
       },

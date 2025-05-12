@@ -16,7 +16,6 @@ export const sign_in_up_Slice = createSlice({
     signUpSubmit: (state, action) => {
       state.users.push(action.payload);
       setItem("users", state.users);
-      router.navigate("/sign-in");
     },
     signInSubmit: (state, action) => {
       const matchedUser = state.users.find(
@@ -28,7 +27,6 @@ export const sign_in_up_Slice = createSlice({
         state.isSuccesSubmit = true;
         state.user = matchedUser;
         setItem("activeUser", matchedUser);
-        router.navigate("/");
       }
     },
 
@@ -44,9 +42,15 @@ export const sign_in_up_Slice = createSlice({
         setItem("activeUser", updateUser);
       }
     },
+
+    logout: (state, action) => {
+      state.user = null;
+      setItem("activeUser", null);
+      state.isSuccesSubmit = false;
+    },
   },
 });
 
-export const { signUpSubmit, signInSubmit, userChange } =
+export const { signUpSubmit, signInSubmit, userChange, logout } =
   sign_in_up_Slice.actions;
 export default sign_in_up_Slice.reducer;

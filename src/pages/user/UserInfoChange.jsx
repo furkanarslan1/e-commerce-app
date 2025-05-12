@@ -2,9 +2,10 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
 import { userChange } from "../../redux/sign_in_up_Slice";
+import { router } from "../../App";
 
 export default function UserInfoChange() {
-  const { user } = useSelector((store) => store.sign_in_up);
+  const { user, users } = useSelector((store) => store.sign_in_up);
   const {
     register,
     handleSubmit,
@@ -16,6 +17,7 @@ export default function UserInfoChange() {
 
   const submit = (data) => {
     dispatch(userChange({ ...data, prevUsername: user.username }));
+    router.navigate("/user");
   };
 
   if (!user) {
@@ -27,7 +29,7 @@ export default function UserInfoChange() {
   }
 
   return (
-    <div className="min-h-screen flex justify-center items-center  px-4 bg-gradient-to-b from-blue-700 to-blue-400  py-8 mt-4 rounded-2xl text-sm md:text-xl ">
+    <div className="min-h-screen flex justify-center items-center  px-4 bg-gradient-to-r from-[#48CAE4] to-[#90E0EF]  py-8 mt-4 rounded-2xl text-sm md:text-xl ">
       <div className="bg-white/10 backdrop-blur-xl border border-white/30 p-12 rounded-2xl shadow-2xl w-full max-w-md md:mb-20 text-white">
         <form
           className="flex flex-col items-center "
@@ -46,11 +48,20 @@ export default function UserInfoChange() {
                   value: 3,
                   message: "Username must be at least 3 characters",
                 },
+                // validate: (value) => {
+                //   const currentUsername = user?.username || "";
+                //   return (
+                //     currentUsername !== value || "This username already taken"
+                //   );
+                // },
                 validate: (value) => {
-                  const currentUsername = user?.username || "";
-                  return (
-                    currentUsername !== value || "This username already taken"
-                  );
+                  const isTaken =
+                    users &&
+                    users.some(
+                      (user) =>
+                        user.username.toLowerCase() === value.toLowerCase()
+                    );
+                  return !isTaken || "Username is already taken";
                 },
               })}
             />

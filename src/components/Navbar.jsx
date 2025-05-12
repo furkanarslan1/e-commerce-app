@@ -81,7 +81,7 @@ export default function Navbar() {
               <HiShoppingCart className="lg:text-3xl" />
             </Link>
           </div>
-          <div className="lg:me-4 bg-[#0077b6] hover:text-black hover:bg-[#0096c7] p-3 rounded-2xl font-bold text-white hover:cursor-pointer duration-300">
+          <div className="lg:me-4  bg-gradient-to-r from-[#90E0EF] to-[#48CAE4]  hover:text-black hover:bg-red-700 p-3 rounded-2xl font-bold text-black  hover:cursor-pointer duration-300">
             {user ? (
               <Link to="user">
                 <p>{user.username}</p>

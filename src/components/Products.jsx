@@ -54,7 +54,7 @@ export default function Products({ product }) {
             </span>
           </p>
           <div className="flex items-center gap-4">
-            <p className="font-extrabold text-green-700">
+            <p className="font-extrabold text-green-700 text-xs md:text-lg">
               {currenyUSD.format(discountedPrice)}
             </p>
 

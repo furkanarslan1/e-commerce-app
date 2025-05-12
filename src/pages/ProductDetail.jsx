@@ -165,7 +165,7 @@ export default function ProductDetail() {
             </div>
           </div> */}
           <div
-            className="w-full  overflow-x-auto no-scrollbar scroll-snap-x"
+            className="w-full  overflow-x-auto no-scrollbar scroll-snap-x "
             style={{ scrollSnapType: "x mandatory", scrollBehavior: "smooth" }}
             ref={scroolRef}
             onScroll={handleScroll}
@@ -174,13 +174,13 @@ export default function ProductDetail() {
               {images?.map((image, i) => (
                 <div
                   key={i}
-                  className="min-w-full h-[600px] scroll-snap-align-center"
+                  className="min-w-full   scroll-snap-align-center"
                   style={{ scrollSnapAlign: "center" }}
                 >
                   <img
                     src={image}
                     alt={title}
-                    className="w-full h-full object-cover"
+                    className="w-full h-full  object-contain"
                   />
                 </div>
               ))}

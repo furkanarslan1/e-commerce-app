@@ -2,6 +2,8 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
 import { signInSubmit } from "../redux/sign_in_up_Slice";
+import { Link } from "react-router";
+import { router } from "../App";
 
 export default function SignIn() {
   const {
@@ -16,6 +18,7 @@ export default function SignIn() {
 
   const signInOnSubmit = (data) => {
     dispatch(signInSubmit(data));
+    router.navigate("/");
   };
 
   return (
@@ -70,6 +73,17 @@ export default function SignIn() {
                 {errors.password.message}
               </p>
             )}
+          </div>
+
+          <div className="text-xs  md:text-sm flex items-center gap-4">
+            <p> Don't have an account? </p>
+            <p className=" ">
+              {" "}
+              <Link to="/sign-up">
+                {" "}
+                <u>Click here to sign up</u>
+              </Link>
+            </p>
           </div>
 
           <button

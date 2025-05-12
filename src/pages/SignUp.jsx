@@ -1,9 +1,11 @@
 import React from "react";
 import { useForm } from "react-hook-form";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { signUpSubmit } from "../redux/sign_in_up_Slice";
+import { router } from "../App";
 
 export default function SignUp() {
+  const { users } = useSelector((store) => store.sign_in_up);
   const {
     register,
     handleSubmit,
@@ -17,6 +19,7 @@ export default function SignUp() {
 
   const submit = (data) => {
     dispatch(signUpSubmit(data));
+    router.navigate("/sign-in");
   };
 
   return (
@@ -37,6 +40,15 @@ export default function SignUp() {
                 minLength: {
                   value: 3,
                   message: "Username must be at least 3 characters",
+                },
+                validate: (value) => {
+                  const isTaken =
+                    users &&
+                    users.some(
+                      (user) =>
+                        user.username.toLowerCase() === value.toLowerCase()
+                    );
+                  return !isTaken || "Username is already taken";
                 },
               })}
             />
