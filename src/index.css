@@ -21,3 +21,9 @@
 .animate-scroll-right {
   animation: scroll-right 60s linear infinite;
 }
+
+.active {
+  background-color: #0096c7;
+  color: #fff;
+  font-weight: bold;
+}

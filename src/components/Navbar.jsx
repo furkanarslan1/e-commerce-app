@@ -83,11 +83,11 @@ export default function Navbar() {
           </div>
           <div className="lg:me-4 bg-[#0077b6] hover:text-black hover:bg-[#0096c7] p-3 rounded-2xl font-bold text-white hover:cursor-pointer duration-300">
             {user ? (
-              <Link>
+              <Link to="user">
                 <p>{user.username}</p>
               </Link>
             ) : (
-              <Link>Sign In</Link>
+              <Link to="sign-in">Sign In</Link>
             )}
           </div>
         </div>
