@@ -6,6 +6,8 @@ import { getCategories } from "../redux/categoriesSlice";
 import Categories from "../components/Categories";
 import { FaAngleLeft, FaAngleRight } from "react-icons/fa";
 import MobileNavbar from "../components/MobileNavbar";
+import { ToastContainer } from "react-toastify";
+
 export default function MainLayout() {
   const dispatch = useDispatch();
   const { categoryList } = useSelector((store) => store.categories);
@@ -53,13 +55,20 @@ export default function MainLayout() {
           >
             {categoryList &&
               categoryList.map((category) => (
-                <Link key={category.id}>
+                <div key={category.id}>
                   <Categories category={category} />
-                </Link>
+                </div>
               ))}
           </div>
         </div>
       </div>
+      <ToastContainer
+        position="bottom-right"
+        theme="colored"
+        autoClose={1000}
+        closeOnClick
+        draggable
+      />
       <main>
         <Outlet />
       </main>

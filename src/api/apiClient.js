@@ -1,6 +1,46 @@
 import axios from "axios";
+import { router } from "../App";
+import { toast } from "react-toastify";
 
 axios.defaults.baseURL = "https://dummyjson.com/";
+
+axios.interceptors.response.use(
+  (response) => {
+    return response;
+  },
+  (error) => {
+    if (error.response) {
+      const status = error.response.status;
+
+      switch (status) {
+        case 401: {
+          toast.error("Unauthorized!");
+          router.navigate("/sign-in");
+          break;
+        }
+        case 404: {
+          toast.error("Not Found!");
+          router.navigate("/errors/not-found");
+          break;
+        }
+        case 500: {
+          toast.error("Server Error!");
+          router.navigate("/errors/server-error");
+          break;
+        }
+        default: {
+          toast.error("An unexpected error occurred");
+          break;
+        }
+      }
+    } else if (error.request) {
+      toast.error("Cannot reach the server. Check your internet connection.");
+    } else {
+      toast.error("Request could not be made");
+    }
+    return Promise.reject(error);
+  }
+);
 
 const methods = {
   get: (url) => axios.get(url).then((response) => response.data),

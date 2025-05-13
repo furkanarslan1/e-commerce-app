@@ -1,5 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import requests from "../api/apiClient";
+import { toast } from "react-toastify";
 
 export const getSuperPrice = createAsyncThunk("getSuperPrice", async () => {
   try {
@@ -44,14 +45,18 @@ export const getTops = createAsyncThunk("getTops", async () => {
 
 // products
 
-export const getProducts = createAsyncThunk("getProducts", async () => {
-  try {
-    const response = await requests.products.list();
-    return response;
-  } catch (error) {
-  } finally {
+export const getProducts = createAsyncThunk(
+  "getProducts",
+  async (_, thunkAPI) => {
+    try {
+      const response = await requests.products.list();
+      return response;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    } finally {
+    }
   }
-});
+);
 
 export const homeProductsSlice = createSlice({
   name: "categories",
@@ -73,14 +78,25 @@ export const homeProductsSlice = createSlice({
       state.status = "pending";
     });
     builder.addCase(getSuperPrice.fulfilled, (state, action) => {
-      (state.status = "succeeded"), (state.itemSuperPrice = action.payload);
+      (state.status = "idle"), (state.itemSuperPrice = action.payload);
+    });
+    builder.addCase(getSuperPrice.rejected, (state, action) => {
+      state.status = "idle";
+      state.error = action.payload;
+      toast.error("SuperPrice  could not be loaded");
     });
     //mens_shirts
     builder.addCase(getMens_shirts.pending, (state) => {
       state.status = "pending";
     });
     builder.addCase(getMens_shirts.fulfilled, (state, action) => {
-      (state.status = "succeeded"), (state.mens_shirts = action.payload);
+      state.status = "succeeded";
+      state.mens_shirts = action.payload;
+    });
+    builder.addCase(getMens_shirts.rejected, (state, action) => {
+      state.status = "idle";
+      state.error = action.payload;
+      toast.error("Mens Shirt  could not be loaded");
     });
     //furniture
     builder.addCase(getFurniture.pending, (state) => {
@@ -89,12 +105,22 @@ export const homeProductsSlice = createSlice({
     builder.addCase(getFurniture.fulfilled, (state, action) => {
       (state.status = "succeeded"), (state.furniture = action.payload);
     });
+    builder.addCase(getFurniture.rejected, (state, action) => {
+      state.status = "idle";
+      state.error = action.payload;
+      toast.error("Furniture  could not be loaded");
+    });
     //tops
     builder.addCase(getTops.pending, (state) => {
       state.status = "pending";
     });
     builder.addCase(getTops.fulfilled, (state, action) => {
       (state.status = "succeeded"), (state.tops = action.payload);
+    });
+    builder.addCase(getTops.rejected, (state, action) => {
+      state.status = "idle";
+      state.error = action.payload;
+      toast.error("Tops could not be loaded");
     });
 
     //products
@@ -103,6 +129,11 @@ export const homeProductsSlice = createSlice({
     });
     builder.addCase(getProducts.fulfilled, (state, action) => {
       (state.status = "succeeded"), (state.productsList = action.payload);
+    });
+    builder.addCase(getProducts.rejected, (state, action) => {
+      state.status = "idle";
+      state.error = action.payload;
+      toast.error("Products could not be loaded");
     });
   },
 });

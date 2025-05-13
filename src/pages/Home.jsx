@@ -64,7 +64,7 @@ export default function Home() {
         <div className="animate-scroll-right whitespace-nowrap w-max flex gap-4 py-4 lg:gap-4">
           {products &&
             [...products, ...products].map((product, index) => (
-              <ProductCard key={product.id} product={product} />
+              <ProductCard key={index} product={product} />
             ))}
         </div>
       </div>
@@ -247,7 +247,7 @@ export default function Home() {
           <div className="bg-[#F2F1F6] rounded-4xl ">
             <img
               src="/images/sunglasses.jpg"
-              alt=""
+              alt="sunglasses"
               className="w-full h-88 object-cover rounded-4xl"
               loading="lazy"
             />
@@ -261,7 +261,7 @@ export default function Home() {
           <div className="bg-[#FAEC34] rounded-4xl">
             <img
               src="/images/vivo.jpg"
-              alt=""
+              alt="vivo"
               className="w-full h-88 object-cover rounded-4xl"
               loading="lazy"
             />
@@ -274,7 +274,7 @@ export default function Home() {
           <div className="bg-[#D8C6B2] rounded-4xl">
             <img
               src="/images/beauty2.jpg"
-              alt=""
+              alt="beauty2"
               className="w-full h-88 object-cover rounded-4xl"
               loading="lazy"
             />
@@ -287,7 +287,7 @@ export default function Home() {
           <div className="bg-[#E4C029] rounded-4xl">
             <img
               src="/images/watches.jpg"
-              alt=""
+              alt="watches"
               className="w-full h-88 object-cover rounded-4xl"
               loading="lazy"
             />

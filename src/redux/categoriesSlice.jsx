@@ -1,14 +1,19 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import requests from "../api/apiClient";
+import { toast } from "react-toastify";
 
-export const getCategories = createAsyncThunk("getCategories", async () => {
-  try {
-    const response = await requests.categories.list();
-    return response;
-  } catch (error) {
-  } finally {
+export const getCategories = createAsyncThunk(
+  "getCategories",
+  async (_, thunkAPI) => {
+    try {
+      const response = await requests.categories.list();
+      return response;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    } finally {
+    }
   }
-});
+);
 
 export const categoriesSlice = createSlice({
   name: "categories",
@@ -23,7 +28,12 @@ export const categoriesSlice = createSlice({
       state.status = "pending";
     });
     builder.addCase(getCategories.fulfilled, (state, action) => {
-      (state.status = "succeeded"), (state.categoryList = action.payload);
+      (state.status = "idle"), (state.categoryList = action.payload);
+    });
+    builder.addCase(getCategories.rejected, (state, action) => {
+      state.status = "idle";
+      state.error = action.payload;
+      toast.error("Categories  could not be loaded");
     });
   },
 });

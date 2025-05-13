@@ -19,6 +19,9 @@ import AuthGuard from "./auth/authGuard";
 import Checkout from "./pages/checkout/Checkout";
 import Order from "./pages/Order";
 import MobileSearch from "./pages/MobileSearch";
+import Error from "./pages/errors/Error";
+import NotFound from "./pages/errors/NotFound";
+import ServerError from "./pages/errors/ServerError";
 
 export const router = createBrowserRouter([
   {
@@ -57,6 +60,15 @@ export const router = createBrowserRouter([
         ],
       },
       { path: "/mobileSearch", element: <MobileSearch /> },
+      {
+        path: "/errors",
+        element: <Error />,
+        children: [
+          { path: "not-found", element: <NotFound /> },
+          { path: "server-error", element: <ServerError /> },
+        ],
+      },
+      { path: "*", element: <NotFound /> },
     ],
   },
 ]);
