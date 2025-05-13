@@ -183,7 +183,7 @@ export default function AddressForm({ handleNext }) {
 
       <button
         type="submit"
-        className="self-end px-6 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 mt-4"
+        className="self-end px-6 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 mb-10 lg:mt-4"
       >
         Next
       </button>

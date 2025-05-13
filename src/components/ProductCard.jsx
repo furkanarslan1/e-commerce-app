@@ -10,7 +10,12 @@ export default function ProductCard({ product }) {
     <Link to={`products/${id}`}>
       <div className=" rounded-2xl hover:cursor-pointer hover:bg-[#90e0ef] duration-300 group bg-amber-300 py-4  lg:py-8">
         <div className="flex flex-col justify-center items-center gap-2">
-          <img src={thumbnail} alt={title} className="w-62 h-52 object-cover" />
+          <img
+            src={thumbnail}
+            alt={title}
+            className="w-62 h-52 object-cover"
+            loading="lazy"
+          />
           <p>{product.title}</p>
           <div className="flex flex-col ">
             <p>

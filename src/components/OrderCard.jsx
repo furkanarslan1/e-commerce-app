@@ -34,7 +34,12 @@ export default function OrderCard({ order, index }) {
               <li key={idx}>
                 {" "}
                 {item.title} – {item.price}$ × {item.quantity}
-                <img src={item.thumbnail} alt={item.title} className="h-10" />
+                <img
+                  src={item.thumbnail}
+                  alt={item.title}
+                  className="h-10"
+                  loading="lazy"
+                />
               </li>
             ))}
           </ul>

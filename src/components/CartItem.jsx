@@ -23,6 +23,7 @@ export default function CartItem({ item }) {
           src={thumbnail}
           alt={title}
           className="object-cover w-20 lg:w-50 lg:h-50 "
+          loading="lazy"
         />
         <div className="flex flex-col gap-2 justify-center items-start">
           <p className="font-bold  text-gray-500 text-[12px] lg:text-xl">

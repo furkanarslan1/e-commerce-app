@@ -37,6 +37,7 @@ export default function Products({ product }) {
               src={thumbnail}
               alt=""
               className=" hover:scale-125 h-42 lg:h-82 duration-500"
+              loading="lazy"
             />
             <p className="font-bold text-gray-500 ">{brand}</p>
           </div>

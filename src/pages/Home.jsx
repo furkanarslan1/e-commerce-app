@@ -52,6 +52,7 @@ export default function Home() {
               src={products?.[2]?.images?.[2]}
               alt="smartphones"
               className="object-cover lg:w-70"
+              loading="lazy"
             />
             <div className="flex flex-col justify-center gap-2 ">
               <p className="font-extrabold lg:text-2xl   text-transparent bg-clip-text bg-gradient-to-r from-blue-900 to-blue-500">
@@ -67,6 +68,7 @@ export default function Home() {
               src="/images/photo.jpg"
               alt="smartphones"
               className="object-cover lg:w-80"
+              loading="lazy"
             />
             <div className="flex flex-col justify-center gap-2 ">
               <p className="font-extrabold lg:text-2xl   text-transparent bg-clip-text bg-gradient-to-r from-blue-900 to-blue-500">
@@ -82,6 +84,7 @@ export default function Home() {
               src="/images/laptop.jpg"
               alt="Laptop"
               className="object-cover lg:w-70"
+              loading="lazy"
             />
             <div className="flex flex-col justify-center gap-2 ">
               <p className="font-extrabold lg:text-2xl   text-transparent bg-clip-text bg-gradient-to-r from-blue-900 to-blue-500">
@@ -97,6 +100,7 @@ export default function Home() {
               src="/images/beauty.jpg"
               alt="smartphones"
               className="object-cover lg:w-70"
+              loading="lazy"
             />
             <div className="flex flex-col justify-center gap-2 ">
               <p className="font-extrabold lg:text-2xl   text-transparent bg-clip-text bg-gradient-to-r from-blue-900 to-blue-500">
@@ -112,6 +116,7 @@ export default function Home() {
               src="/images/decaration.jpg"
               alt="smartphones"
               className="object-cover lg:w-70"
+              loading="lazy"
             />
             <div className="flex flex-col justify-center gap-2 ">
               <p className="font-extrabold lg:text-2xl   text-transparent bg-clip-text bg-gradient-to-r from-blue-900 to-blue-500">
@@ -127,6 +132,7 @@ export default function Home() {
               src="/images/kitchen.jpg"
               alt="smartphones"
               className="object-cover lg:w-70"
+              loading="lazy"
             />
             <div className="flex flex-col justify-center gap-2 ">
               <p className="font-extrabold lg:text-2xl   text-transparent bg-clip-text bg-gradient-to-r from-blue-900 to-blue-500">
@@ -213,6 +219,7 @@ export default function Home() {
               src="/images/sunglasses.jpg"
               alt=""
               className="w-full h-88 object-cover rounded-4xl"
+              loading="lazy"
             />
             <p className="text-gray-600 font-bold ps-9 py-1 ">
               Add shine to your style with the latest sunglasses. Don’t miss up
@@ -226,6 +233,7 @@ export default function Home() {
               src="/images/vivo.jpg"
               alt=""
               className="w-full h-88 object-cover rounded-4xl"
+              loading="lazy"
             />
             <p className="text-black  font-bold py-1 ps-9">
               30% Off on All Chinese Phones!
@@ -238,6 +246,7 @@ export default function Home() {
               src="/images/beauty2.jpg"
               alt=""
               className="w-full h-88 object-cover rounded-4xl"
+              loading="lazy"
             />
             <p className="text-gray-600 font-bold  text-center py-1 ">
               Buy Now, Pay Later
@@ -250,6 +259,7 @@ export default function Home() {
               src="/images/watches.jpg"
               alt=""
               className="w-full h-88 object-cover rounded-4xl"
+              loading="lazy"
             />
             <p className="text-white font-bold py-1 ps-9">
               Catch the Time, Catch the Deal – 60% Off!

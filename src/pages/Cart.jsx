@@ -76,7 +76,7 @@ export default function Cart() {
             <button
               onClick={handleSubmit}
               to="/checkout"
-              className="bg-[#0077B6] p-8 rounded-2xl text-white flex items-center gap-6 cursor-pointer mt-4 lg:mt-0"
+              className="bg-[#0077B6] p-4 lg:p-8 rounded-2xl text-white flex items-center gap-6 cursor-pointer mt-4 lg:mt-0"
             >
               <p> Continue to Checkout</p>
               <button className="">

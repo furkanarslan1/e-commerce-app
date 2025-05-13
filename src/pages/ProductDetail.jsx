@@ -174,13 +174,14 @@ export default function ProductDetail() {
               {images?.map((image, i) => (
                 <div
                   key={i}
-                  className="min-w-full   scroll-snap-align-center"
+                  className="min-w-full   lg:h-[350px]  scroll-snap-align-center"
                   style={{ scrollSnapAlign: "center" }}
                 >
                   <img
                     src={image}
                     alt={title}
                     className="w-full h-full  object-contain"
+                    loading="lazy"
                   />
                 </div>
               ))}
@@ -220,6 +221,7 @@ export default function ProductDetail() {
                   src={image}
                   alt={title}
                   className="w-full h-full object-cover rounded-2xl"
+                  loading="lazy"
                 />
               </div>
             ))}
@@ -229,7 +231,7 @@ export default function ProductDetail() {
         <div className="flex flex-col lg:gap-2 gap-4 p-4">
           <h1 className="font-extrabold text-4xl">{title}</h1>
           {availabilityStatus && (
-            <div className="flex items-center justify-between text-[12px]  bg-amber-300 w-40 px-4 p-1 rounded-4xl">
+            <div className="flex items-center justify-between text-[10px]  bg-amber-300 w-40 px-4 p-1 rounded-4xl">
               <p className="font-bold">{availabilityStatus}</p>
               <TiTick className="text-2xl" />
               <p className="font-bold">{stock} pcs</p>
@@ -280,8 +282,8 @@ export default function ProductDetail() {
                 className="flex items-center gap-4 text-white px-3 py-2 rounded-2xl bg-gradient-to-r from-blue-900 to-blue-500  hover:from-blue-400 hover:to-blue-900 transition-all hover:cursor-pointer  duration-800"
                 onClick={() => dispatch(removeFromCart(items.id))}
               >
-                <span className="font-bold ">Remove from cart</span>
-                <BsFillBasket3Fill className="lg:text-4xl text-6xl" />
+                <span className="font-bold text-sm">Remove from cart</span>
+                <BsFillBasket3Fill className="lg:text-4xl text-3xl" />
               </button>
             ) : (
               <button
@@ -289,7 +291,7 @@ export default function ProductDetail() {
                 onClick={() => dispatch(addToCart({ ...items, quantity: pcs }))}
               >
                 <span className="font-bold ">Add to Cart</span>
-                <BsFillBasket3Fill className="lg:text-4xl text-6xl" />
+                <BsFillBasket3Fill className="lg:text-4xl text-3xl" />
               </button>
             )}
 
@@ -360,6 +362,7 @@ export default function ProductDetail() {
               src={image}
               alt={title}
               className="w-full h-full  object-cover "
+              loading="lazy"
             />
           ))}
         </div>

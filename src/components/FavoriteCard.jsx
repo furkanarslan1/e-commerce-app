@@ -34,7 +34,7 @@ export default function FavoriteCard({ favorite }) {
       className="border-1 border-gray-300 rounded-2xl p-4 h-55 flex flex-col items-center justify-center lg:h-60 hover:bg-amber-300 transition-all duration-500"
     >
       <div className="flex flex-col items-center gap-2">
-        <img src={thumbnail} alt="" />
+        <img src={thumbnail} alt="" loading="lazy" />
         <p className="text-[12px] lg:text-sm">
           {title.length > 15 ? `${title.slice(0, 10)}...` : title}
         </p>

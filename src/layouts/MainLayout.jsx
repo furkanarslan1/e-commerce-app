@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getCategories } from "../redux/categoriesSlice";
 import Categories from "../components/Categories";
 import { FaAngleLeft, FaAngleRight } from "react-icons/fa";
+import MobileNavbar from "../components/MobileNavbar";
 export default function MainLayout() {
   const dispatch = useDispatch();
   const { categoryList } = useSelector((store) => store.categories);
@@ -28,7 +29,7 @@ export default function MainLayout() {
   };
 
   return (
-    <div>
+    <div className="">
       <div>
         <Navbar />
       </div>
@@ -62,6 +63,9 @@ export default function MainLayout() {
       <main>
         <Outlet />
       </main>
+      <nav className="fixed bottom-0 left-0 w-full z-50 h-[56px] sm:block lg:hidden md:hidden">
+        <MobileNavbar />
+      </nav>
     </div>
   );
 }

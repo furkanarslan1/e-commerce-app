@@ -43,7 +43,7 @@ export default function SearchItem({ items }) {
     <Link to={`/products/${id}`}>
       <div className="text-black flex flex-col justify-center gap-2 border-1 rounded-2xl p-6 h-[300px] lg:h-[350px]   cursor-pointer hover:bg-amber-300 transition-all duration-500">
         <div>
-          <img src={thumbnail} alt={title} />
+          <img src={thumbnail} alt={title} loading="lazy" />
         </div>
         <div>
           <p className="text-gray-700">

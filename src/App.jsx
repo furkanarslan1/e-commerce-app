@@ -18,6 +18,7 @@ import UserInfoChange from "./pages/user/UserInfoChange";
 import AuthGuard from "./auth/authGuard";
 import Checkout from "./pages/checkout/Checkout";
 import Order from "./pages/Order";
+import MobileSearch from "./pages/MobileSearch";
 
 export const router = createBrowserRouter([
   {
@@ -55,6 +56,7 @@ export const router = createBrowserRouter([
           { path: "order", element: <Order /> },
         ],
       },
+      { path: "/mobileSearch", element: <MobileSearch /> },
     ],
   },
 ]);
