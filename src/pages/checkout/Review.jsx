@@ -69,7 +69,7 @@ export default function Review() {
           </p>
         </div>
 
-        <div>
+        <div className="grid grid-cols-2">
           {orderCart.map((item) => (
             <div className="text-sm flex items-center gap-1">
               <img

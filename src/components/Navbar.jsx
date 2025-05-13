@@ -72,7 +72,7 @@ export default function Navbar() {
             </Link>
           </div>
           <div>
-            <Link>
+            <Link to="order">
               <p>Orders</p>
             </Link>
           </div>

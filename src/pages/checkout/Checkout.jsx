@@ -5,6 +5,7 @@ import Review from "./Review";
 import { useDispatch } from "react-redux";
 import { placeOrder } from "../../redux/orderSlice";
 import { router } from "../../App";
+import { clearCart } from "../../redux/cartSlice";
 
 const steps = ["Shipping Information", "Payment", "Order Summary"];
 
@@ -35,8 +36,10 @@ export default function Checkout() {
 
   const orderSubmit = () => {
     dispatch(placeOrder());
+    dispatch(clearCart());
     router.navigate("/");
     alert("order completed");
+    window.location.reload();
   };
 
   return (

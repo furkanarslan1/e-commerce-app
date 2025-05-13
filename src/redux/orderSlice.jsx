@@ -27,7 +27,7 @@ export const orderSlice = createSlice({
     orderAddress: getItem(getOrderAddress(), {}),
     orderPay: getItem(getOrderPay(), {}),
     orderCart: getItem(getOrderCart(), {}),
-    orderPlace: getItem(getOrderPlace(), {}),
+    orderPlace: getItem(getOrderPlace(), []),
   },
   reducers: {
     addOrderAddress: (state, action) => {
@@ -58,12 +58,15 @@ export const orderSlice = createSlice({
     placeOrder: (state, action) => {
       const key = getOrderPlace();
       if (key) {
-        state.orderPlace = {
+        const newOrder = {
           orderAddress: state.orderAddress,
           orderPay: state.orderPay,
           orderCart: state.orderCart,
+          createdAt: new Date().toISOString(),
         };
+        state.orderPlace.push(newOrder);
         setItem(key, state.orderPlace);
+        setItem("cart", []);
         console.log(state.orderPlace);
       }
     },
