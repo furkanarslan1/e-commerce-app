@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import {
   getSuperPrice,
@@ -12,17 +12,41 @@ import Products from "../components/Products";
 import { Link } from "react-router";
 
 import { FaArrowLeftLong } from "react-icons/fa6";
+import useIntersectionObserver from "../hooks/useIntersectionObserver";
 
 export default function Home() {
+  const [topListRef, isTopListRef] = useIntersectionObserver({
+    threshold: 0.2,
+  });
+  const [mensRef, isMensRefVisible] = useIntersectionObserver({
+    threshold: 0.3,
+  });
+  const [furnitureRef, isFurnitureRefVisible] = useIntersectionObserver({
+    threshold: 0.3,
+  });
+
+  const mensLoaded = useRef(false);
+  const furnitureLoaded = useRef(false);
+  const topListLoaded = useRef(false);
+
   const dispatch = useDispatch();
   const { itemSuperPrice, mens_shirts, furniture, tops, productsList } =
     useSelector((store) => store.homeProducts);
   useEffect(() => {
     dispatch(getSuperPrice());
-    dispatch(getMens_shirts());
-    dispatch(getFurniture());
-    dispatch(getTops());
-  }, []);
+    if (isMensRefVisible && !mensLoaded.current) {
+      dispatch(getMens_shirts());
+      mensLoaded.current = true;
+    }
+    if (isFurnitureRefVisible && !furnitureLoaded.current) {
+      dispatch(getFurniture());
+      furnitureLoaded.current = true;
+    }
+    if (isTopListRef && !topListLoaded.current) {
+      dispatch(getTops());
+      topListLoaded.current = true;
+    }
+  }, [isMensRefVisible, isFurnitureRefVisible, isTopListRef]);
   console.log(furniture);
 
   const { products } = itemSuperPrice;
@@ -40,7 +64,7 @@ export default function Home() {
         <div className="animate-scroll-right whitespace-nowrap w-max flex gap-4 py-4 lg:gap-4">
           {products &&
             [...products, ...products].map((product, index) => (
-              <ProductCard key={index} product={product} />
+              <ProductCard key={product.id} product={product} />
             ))}
         </div>
       </div>
@@ -149,7 +173,10 @@ export default function Home() {
         <h6 className="lg:text-2xl pt-2 font-extrabold ps-3 ">
           The Most Popular Men Shirts
         </h6>
-        <div className="flex overflow-x-auto no-scrollbar items-center gap-2 lg:py-4 px-2">
+        <div
+          className="flex overflow-x-auto no-scrollbar items-center gap-2 lg:py-4 px-2"
+          ref={mensRef}
+        >
           {mensShirtProducts &&
             mensShirtProducts.map((product) => (
               <Products key={product.id} product={product} />
@@ -205,7 +232,10 @@ export default function Home() {
         <h6 className="lg:text-2xl pt-2 font-extrabold ps-3  ">
           The Most Popular Furniture
         </h6>
-        <div className="flex overflow-x-auto no-scrollbar items-center lg:py-4 px-2">
+        <div
+          className="flex overflow-x-auto no-scrollbar items-center lg:py-4 px-2"
+          ref={furnitureRef}
+        >
           {furnitureList &&
             furnitureList.map((product) => (
               <Products key={product.id} product={product} />
@@ -272,7 +302,10 @@ export default function Home() {
         <h6 className="lg:text-2xl pt-2 font-extrabold ps-3">
           This Year’s Most Loved Dresses Are Here!
         </h6>
-        <div className="grid grid-cols-2 md:grid-cols-5 overflow-hidden">
+        <div
+          ref={topListRef}
+          className="grid grid-cols-2 md:grid-cols-5 overflow-hidden"
+        >
           {topList &&
             topList.map((product) => (
               <Products key={product.id} product={product} />
