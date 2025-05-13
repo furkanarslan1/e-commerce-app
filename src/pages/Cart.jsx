@@ -5,6 +5,9 @@ import { currenyUSD } from "../utils/format";
 import { FaArrowCircleRight } from "react-icons/fa";
 import { FaTrash } from "react-icons/fa";
 import { clearCart } from "../redux/cartSlice";
+import { Link } from "react-router";
+import { router } from "../App";
+import { addOrderCart } from "../redux/orderSlice";
 
 export default function Cart() {
   const dispatch = useDispatch();
@@ -23,6 +26,12 @@ export default function Cart() {
       </div>
     );
   }
+
+  const handleSubmit = () => {
+    dispatch(addOrderCart(cartItems));
+
+    router.navigate("/checkout");
+  };
 
   return (
     <div className="">
@@ -64,12 +73,16 @@ export default function Cart() {
               </p>
             </div>
 
-            <div className="bg-[#0077B6] p-8 rounded-2xl text-white flex items-center gap-6 cursor-pointer mt-4 lg:mt-0">
+            <button
+              onClick={handleSubmit}
+              to="/checkout"
+              className="bg-[#0077B6] p-8 rounded-2xl text-white flex items-center gap-6 cursor-pointer mt-4 lg:mt-0"
+            >
               <p> Continue to Checkout</p>
               <button className="">
                 <FaArrowCircleRight className="text-2xl" />
               </button>
-            </div>
+            </button>
           </div>
         </div>
       </div>

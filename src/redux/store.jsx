@@ -8,6 +8,7 @@ import { cartSlice } from "./cartSlice";
 import { favoriteSlice } from "./favoriteSlice";
 import { searchSlice } from "./searchSlice";
 import { sign_in_up_Slice } from "./sign_in_up_Slice";
+import { orderSlice } from "./orderSlice";
 
 export const store = configureStore({
   reducer: {
@@ -20,5 +21,6 @@ export const store = configureStore({
     favorites: favoriteSlice.reducer,
     search: searchSlice.reducer,
     sign_in_up: sign_in_up_Slice.reducer,
+    order: orderSlice.reducer,
   },
 });

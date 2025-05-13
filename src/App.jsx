@@ -16,6 +16,7 @@ import UserInfo from "./pages/user/UserInfo";
 
 import UserInfoChange from "./pages/user/UserInfoChange";
 import AuthGuard from "./auth/authGuard";
+import Checkout from "./pages/checkout/Checkout";
 
 export const router = createBrowserRouter([
   {
@@ -46,7 +47,10 @@ export const router = createBrowserRouter([
           { path: "user-info-change", element: <UserInfoChange /> },
         ],
       },
-      { element: <AuthGuard />, children: [] },
+      {
+        element: <AuthGuard />,
+        children: [{ path: "checkout", element: <Checkout /> }],
+      },
     ],
   },
 ]);
