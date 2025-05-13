@@ -7,6 +7,7 @@ import Categories from "../components/Categories";
 import { FaAngleLeft, FaAngleRight } from "react-icons/fa";
 import MobileNavbar from "../components/MobileNavbar";
 import { ToastContainer } from "react-toastify";
+import Footer from "../components/Footer";
 
 export default function MainLayout() {
   const dispatch = useDispatch();
@@ -75,6 +76,10 @@ export default function MainLayout() {
       <nav className="fixed bottom-0 left-0 w-full z-50 h-[56px] sm:block lg:hidden md:hidden">
         <MobileNavbar />
       </nav>
+
+      <footer>
+        <Footer />
+      </footer>
     </div>
   );
 }

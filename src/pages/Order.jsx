@@ -24,7 +24,7 @@ export default function Order() {
   //   );
 
   return (
-    <div className="p-4 space-y-4">
+    <div className="p-4 space-y-4 min-h-screen">
       {orderPlace.map((order, index) => (
         <div
           key={index}

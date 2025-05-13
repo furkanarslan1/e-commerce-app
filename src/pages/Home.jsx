@@ -47,7 +47,6 @@ export default function Home() {
       topListLoaded.current = true;
     }
   }, [isMensRefVisible, isFurnitureRefVisible, isTopListRef]);
-  console.log(furniture);
 
   const { products } = itemSuperPrice;
   const { products: mensShirtProducts } = mens_shirts;
