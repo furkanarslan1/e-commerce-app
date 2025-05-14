@@ -11,6 +11,9 @@ export default function UserLayout() {
         <NavLink to="user-info-change" className="border-1 p-2 rounded-md">
           User Info Change
         </NavLink>
+        <NavLink to="/order" className="border-1 p-2 rounded-md">
+          Orders
+        </NavLink>
       </div>
       <Outlet />
     </div>

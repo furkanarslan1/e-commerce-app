@@ -1,5 +1,21 @@
 @import "tailwindcss";
 
+@keyframes fade {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.animate-fade {
+  animation: fade 1.2s ease-in-out infinite;
+}
+
 * {
   box-sizing: border-box;
 }
@@ -20,6 +36,10 @@
 
 .animate-scroll-right {
   animation: scroll-right 60s linear infinite;
+}
+
+.pause-on-hover:hover {
+  animation-play-state: paused;
 }
 
 .active {

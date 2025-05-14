@@ -6,7 +6,7 @@ export default function Categories({ category }) {
   return (
     <Link to={`categories/${slug}`}>
       <ul className="">
-        <li className=" lg:w-40 text-center">{category.name}</li>
+        <li className="md:w-30 lg:w-40 text-center">{category.name}</li>
       </ul>
     </Link>
   );

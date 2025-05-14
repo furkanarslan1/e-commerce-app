@@ -60,7 +60,7 @@ export default function Home() {
           Super Price
         </h4>
 
-        <div className="animate-scroll-right whitespace-nowrap w-max flex gap-4 py-4 lg:gap-4">
+        <div className="animate-scroll-right lg:pause-on-hover whitespace-nowrap w-max flex gap-2 py-4 lg:gap-4">
           {products &&
             [...products, ...products].map((product, index) => (
               <ProductCard key={index} product={product} />

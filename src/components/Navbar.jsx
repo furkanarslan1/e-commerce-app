@@ -4,8 +4,9 @@ import { Link, useNavigate } from "react-router";
 import { MdFavorite } from "react-icons/md";
 import { HiShoppingCart } from "react-icons/hi";
 import { useDispatch, useSelector } from "react-redux";
-import { FaSearch } from "react-icons/fa";
+
 import { getSearch } from "../redux/searchSlice";
+import { FaBoxOpen } from "react-icons/fa";
 
 export default function Navbar() {
   const { favoriteList } = useSelector((store) => store.favorites);
@@ -40,11 +41,11 @@ export default function Navbar() {
         <Link to="/">
           <div className="flex text-4xl  gap-6 lg:gap-2 lg:text-3xl">
             <PiShoppingBagFill className="text-5xl lg:text-4xl" />
-            <p className="font-extrabold">e-commerce</p>
+            <p className="font-extrabold ">e-commerce</p>
           </div>
         </Link>
 
-        <div className="hidden md:block">
+        <div className="hidden lg:block">
           {/* <form onSubmit={handleSubmit}> */}
           <div className="flex items-center gap-2">
             <input
@@ -61,7 +62,7 @@ export default function Navbar() {
           {/* </form> */}
         </div>
 
-        <div className=" items-center lg:gap-12 text-xl hidden md:flex">
+        <div className=" items-center lg:gap-12 text-xl hidden lg:flex">
           <div>
             <Link to="favorites">
               <MdFavorite
@@ -73,7 +74,7 @@ export default function Navbar() {
           </div>
           <div>
             <Link to="order">
-              <p>Orders</p>
+              <FaBoxOpen className="text-3xl" />
             </Link>
           </div>
           <div>
