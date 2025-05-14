@@ -69,6 +69,7 @@ const categories = {
   womens_shoes: () => methods.get("products/category/womens-shoes"),
   tops: () => methods.get("products/category/tops"),
   smartphones: () => methods.get("products/category/smartphones"),
+  laptops: () => methods.get("products/category/laptops"),
 };
 
 const requests = {

@@ -58,6 +58,19 @@ export const getProducts = createAsyncThunk(
   }
 );
 
+export const getLaptops = createAsyncThunk(
+  "getLaptops",
+  async (_, thunkAPI) => {
+    try {
+      const response = await requests.categories.laptops();
+      return response;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    } finally {
+    }
+  }
+);
+
 export const homeProductsSlice = createSlice({
   name: "categories",
   initialState: {
@@ -69,6 +82,8 @@ export const homeProductsSlice = createSlice({
     mobile_accessories: [],
     tops: [],
     productsList: [],
+    laptops: [],
+
     status: "idle",
     error: null,
   },
@@ -134,6 +149,20 @@ export const homeProductsSlice = createSlice({
       state.status = "idle";
       state.error = action.payload;
       toast.error("Products could not be loaded");
+    });
+
+    //laptops
+    builder.addCase(getLaptops.pending, (state) => {
+      state.status = "pending";
+    });
+    builder.addCase(getLaptops.fulfilled, (state, action) => {
+      state.status = "idle";
+      state.laptops = action.payload;
+    });
+    builder.addCase(getLaptops.rejected, (state, action) => {
+      state.status = "idle";
+      state.error = action.payload;
+      toast.error("Laptops could not be loaded");
     });
   },
 });

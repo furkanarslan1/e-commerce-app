@@ -34,7 +34,7 @@ export default function Cart() {
   };
 
   return (
-    <div className="">
+    <div className="min-h-screen">
       <div className="p-2 lg:p-6 lg:max-w-5xl lg:mx-auto ">
         <div className="flex flex-col gap-2 items-center ">
           <h1 className="font-extrabold text-xl lg:text-4xl  text-[#0096C7]">

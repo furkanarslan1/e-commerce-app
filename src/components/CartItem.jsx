@@ -17,8 +17,8 @@ export default function CartItem({ item }) {
 
   console.log(item);
   return (
-    <div className="flex items-center justify-between border border-gray-300 px-4 py-2 rounded-2xl shadow-xl ">
-      <div className="flex items-center ">
+    <div className="flex flex-col lg:flex-row gap-6  items-center justify-between border border-gray-300 px-4 py-2 rounded-2xl shadow-xl ">
+      <div className="flex items-center  pe-2">
         <img
           src={thumbnail}
           alt={title}
@@ -50,7 +50,7 @@ export default function CartItem({ item }) {
           </div>
         </div>
       </div>
-      <div className="flex items-center gap-8">
+      <div className="flex items-center  gap-4">
         <p className="text-sm lg:text-lg text-green-700 font-extrabold ">
           {currenyUSD.format(quantity * price)}
         </p>

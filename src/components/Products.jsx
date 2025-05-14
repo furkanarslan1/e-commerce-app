@@ -30,26 +30,32 @@ export default function Products({ product }) {
 
   return (
     <Link to={`products/${id}`}>
-      <div className="hover:cursor-pointer">
+      <div className="hover:cursor-pointer text-sm">
         <div className="flex flex-col justify-center items-center gap-2  ">
-          <div className="flex flex-col items-center justify-center">
+          <div className="flex flex-col items-center justify-center h-30 lg:h-80 mb-2">
             <img
               src={thumbnail}
-              alt=""
-              className=" hover:scale-125 h-42 lg:h-82 duration-500"
+              alt={brand}
+              className=" hover:scale-125 h-full lg:h-82 duration-500"
               loading="lazy"
             />
-            <p className="font-bold text-gray-500 ">{brand}</p>
+            <p className="font-bold text-gray-500 pb-2 text-[10px] lg:text-lg">
+              {brand}
+            </p>
           </div>
 
-          <div className="flex items-center gap-2 rounded-4xl px-2">
+          <div className="flex items-center gap-2 rounded-4xl px-2 text-[12px] lg:text-lg">
             {Array.from({ length: Math.round(rating) }, (_, i) => (
               <IoStar key={i} className="text-yellow-400" />
             ))}
-            <p className="font-bold text-gray-400">{rating}</p>
+            <p className="font-bold text-gray-400 text-[10px] lg:text-lg">
+              {rating}
+            </p>
           </div>
           <p className="text-sm flex items-center gap-3">
-            <del>{currenyUSD.format(price)}</del>
+            <del className="text-[10px] lg:text-lg">
+              {currenyUSD.format(price)}
+            </del>
             <span className="font-extrabold text-gray-500 text-[10px] lg:text-sm ">
               {discountPercentage}%
             </span>
@@ -64,9 +70,9 @@ export default function Products({ product }) {
               className="cursor-pointer "
             >
               {isInFavorite ? (
-                <FaHeart className="text-blue-500 text-2xl hover:text-amber-300 hover:scale-130 duration-300" />
+                <FaHeart className="text-blue-500 text-xl lg:text-2xl hover:text-amber-300 hover:scale-130 duration-300" />
               ) : (
-                <CiHeart className="text-2xl hover:text-blue-500 hover:scale-130 duration-300" />
+                <CiHeart className="text-xl lg:text-2xl hover:text-blue-500 hover:scale-130 duration-300" />
               )}
             </button>
           </div>

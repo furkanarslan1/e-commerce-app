@@ -5,7 +5,7 @@ import {
   getMens_shirts,
   getFurniture,
   getTops,
-  getProducts,
+  getLaptops,
 } from "../redux/homeProductsSlice";
 import ProductCard from "../components/ProductCard";
 import Products from "../components/Products";
@@ -24,16 +24,25 @@ export default function Home() {
   const [furnitureRef, isFurnitureRefVisible] = useIntersectionObserver({
     threshold: 0.3,
   });
+  const [laptopsRef, isLaptopsRefVisible] = useIntersectionObserver({
+    threshold: 0.3,
+  });
 
   const mensLoaded = useRef(false);
   const furnitureLoaded = useRef(false);
   const topListLoaded = useRef(false);
+  const laptopsLoaded = useRef(false);
 
   const dispatch = useDispatch();
-  const { itemSuperPrice, mens_shirts, furniture, tops, productsList } =
-    useSelector((store) => store.homeProducts);
+  const { itemSuperPrice, mens_shirts, furniture, tops, laptops } = useSelector(
+    (store) => store.homeProducts
+  );
   useEffect(() => {
     dispatch(getSuperPrice());
+    if (isLaptopsRefVisible && !laptopsLoaded.current) {
+      dispatch(getLaptops());
+      laptopsLoaded.current = true;
+    }
     if (isMensRefVisible && !mensLoaded.current) {
       dispatch(getMens_shirts());
       mensLoaded.current = true;
@@ -46,16 +55,37 @@ export default function Home() {
       dispatch(getTops());
       topListLoaded.current = true;
     }
-  }, [isMensRefVisible, isFurnitureRefVisible, isTopListRef]);
+  }, [
+    isMensRefVisible,
+    isFurnitureRefVisible,
+    isTopListRef,
+    isLaptopsRefVisible,
+  ]);
 
   const { products } = itemSuperPrice;
   const { products: mensShirtProducts } = mens_shirts;
   const { products: furnitureList } = furniture;
   const { products: topList } = tops;
+  const { products: laptopProducts } = laptops;
 
   return (
     <div>
-      <div className="relative overflow-hidden bg-white text-black lg:px-4  lg:py-6">
+      <div className="border-b-2 pb-2">
+        <h6 className="lg:text-2xl pt-2 font-extrabold ps-3 ">
+          The Most Popular Laptops
+        </h6>
+        <div
+          className="flex overflow-x-auto no-scrollbar items-center gap-2 lg:py-4 px-2"
+          ref={laptopsRef}
+        >
+          {laptopProducts &&
+            laptopProducts.map((product) => (
+              <Products key={product.id} product={product} />
+            ))}
+        </div>
+      </div>
+
+      <div className="relative overflow-hidden bg-white hidden lg:block text-black lg:px-4  lg:py-6">
         <h4 className="font-extrabold text-2xl lg:text-3xl pb-4 pt-2 ps-3 inline-block text-transparent bg-clip-text bg-gradient-to-r from-blue-700 to-red-600 ">
           Super Price
         </h4>
@@ -167,6 +197,18 @@ export default function Home() {
             </div>
           </div>
         </Link>
+      </div>
+      <div className="relative overflow-hidden bg-white block lg:hidden  text-black lg:px-4  lg:py-6">
+        <h4 className="font-extrabold text-2xl lg:text-3xl pb-4 pt-2 ps-3 inline-block text-transparent bg-clip-text bg-gradient-to-r from-blue-700 to-red-600 ">
+          Super Price
+        </h4>
+
+        <div className="animate-scroll-right lg:pause-on-hover whitespace-nowrap w-max flex gap-2 py-4 lg:gap-4">
+          {products &&
+            [...products, ...products].map((product, index) => (
+              <ProductCard key={index} product={product} />
+            ))}
+        </div>
       </div>
       <div className="border-b-2 pb-2">
         <h6 className="lg:text-2xl pt-2 font-extrabold ps-3 ">
