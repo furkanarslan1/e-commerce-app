@@ -44,17 +44,18 @@ export const router = createBrowserRouter([
       { path: "search", element: <Search /> },
       { path: "sign-up", element: <SignUp /> },
       { path: "sign-in", element: <SignIn /> },
-      {
-        path: "user",
-        element: <UserLayout />,
-        children: [
-          { index: true, element: <UserInfo /> },
-          { path: "user-info-change", element: <UserInfoChange /> },
-        ],
-      },
+
       {
         element: <AuthGuard />,
         children: [
+          {
+            path: "user",
+            element: <UserLayout />,
+            children: [
+              { index: true, element: <UserInfo /> },
+              { path: "user-info-change", element: <UserInfoChange /> },
+            ],
+          },
           { path: "checkout", element: <Checkout /> },
           { path: "order", element: <Order /> },
         ],

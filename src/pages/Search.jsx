@@ -18,7 +18,7 @@ export default function Search() {
   }, [searchInfo, dispatch]);
 
   return (
-    <div className="p-4">
+    <div className="p-4 min-h-screen">
       {/* 🔍 Search input sadece mobilde gösterilir */}
       <input
         type="text"
