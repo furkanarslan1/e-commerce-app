@@ -1,12 +1,39 @@
-# React + Vite
+# 🛍️ E-Commerce Web App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project is a modern e-commerce web app built using React and Vite. It fetches product data from the mock API [dummyjson.com](https://dummyjson.com/).
 
-Currently, two official plugins are available:
+## 🚀 Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- 🔄 React + Vite architecture
+- 📦 State management with Redux Toolkit
+- 🔔 User notifications with React Toastify
+- 🛒 Product listing, detail pages, and category filtering
+- 💥 Special discount sections (Huge Sale, Products on Sale, etc.)
+- 🎨 Responsive design using Tailwind CSS
+- 📡 Axios for API requests (with interceptors for error handling)
 
-## Expanding the ESLint configuration
+## 📁 Project Structure
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+src/
+├── api/ # Axios configuration and endpoints
+├── components/ # Reusable components
+├── features/ # Redux slices
+├── pages/ # Pages (home, detail, category etc.)
+├── routes/ # Routing configuration
+├── App.jsx # Main app component
+└── main.jsx # Entry point
+
+![Home Page](./public/images/image1.jpeg)
+![search Page](./public/images/image2.jpeg)
+![Shopping Cart](./public/images/image3.jpeg)
+![Order](./public/images/image4.jpeg)
+![Checkout steps](./public/images/image5.jpeg)
+
+## ⚙️ Getting Started
+
+```bash
+git clone https://github.com/username/e-commerce-app.git
+cd e-commerce-app
+npm install
+npm run dev
+```
