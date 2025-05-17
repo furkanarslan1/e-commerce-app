@@ -31,7 +31,7 @@ export default function FavoriteCard({ favorite }) {
   return (
     <Link
       to={`/products/${id}`}
-      className="border-1 border-gray-300 rounded-2xl p-4 h-55 flex flex-col items-center justify-center lg:h-60 hover:bg-amber-300 transition-all duration-500"
+      className="border-1 border-gray-300 rounded-2xl p-6 h-55 flex flex-col items-center justify-center lg:h-60 hover:bg-amber-300 transition-all duration-500 "
     >
       <div className="flex flex-col items-center gap-2">
         <img src={thumbnail} alt="" loading="lazy" />

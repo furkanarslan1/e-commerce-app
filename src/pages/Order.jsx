@@ -9,8 +9,10 @@ export default function Order() {
 
   if (!orderPlace || orderPlace.length === 0) {
     return (
-      <div className="bg-orange-300 font-bold  py-4 mt-8 mx-4 text-center rounded ">
-        There is no order.
+      <div className="   min-h-screen">
+        <h1 className="bg-orange-300 font-bold  py-4 mt-8 mx-4 text-center rounded">
+          Thre is no order.
+        </h1>
       </div>
     );
   }

@@ -3,7 +3,7 @@ import { FaStar } from "react-icons/fa";
 import { currenyUSD } from "../utils/format";
 import { FaRegHeart } from "react-icons/fa";
 import { BsFillBasket3Fill } from "react-icons/bs";
-import { Link } from "react-router";
+import { Link, NavLink } from "react-router";
 import { useDispatch, useSelector } from "react-redux";
 import { FaHeart } from "react-icons/fa";
 import { CiHeart } from "react-icons/ci";
@@ -40,8 +40,8 @@ export default function CategoryItem({ categoryItem }) {
     store.favorites.favoriteList.find((item) => item.id === categoryItem.id)
   );
   return (
-    <Link to={`/products/${id}`}>
-      <div className="text-black flex flex-col justify-center gap-2 border-1 rounded-2xl p-6 h-[250px] lg:h-[500px]   cursor-pointer">
+    <NavLink to={`/products/${id}`}>
+      <div className="text-black flex flex-col justify-center gap-2 border-1 rounded-2xl p-6 h-[250px] lg:h-[500px]   cursor-pointer ">
         <div>
           <img src={thumbnail} alt={title} loading="lazy" />
         </div>
@@ -55,7 +55,7 @@ export default function CategoryItem({ categoryItem }) {
         <div className="flex  items-center justify-between">
           <div className="flex items-center gap-1 text-xs lg:text-xl">
             {Array.from({ length: rating }, (_, i) => (
-              <FaStar className="text-yellow-400" />
+              <FaStar key={i} className="text-yellow-400" />
             ))}
             <p>{rating}</p>
           </div>
@@ -80,6 +80,6 @@ export default function CategoryItem({ categoryItem }) {
           </button>
         </div>
       </div>
-    </Link>
+    </NavLink>
   );
 }

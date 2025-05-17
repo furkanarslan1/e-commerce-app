@@ -20,7 +20,7 @@ export default function Cart() {
   if (cartItems.length === 0) {
     return (
       <div className="flex justify-center items-start  pt-20  min-h-screen ">
-        <h1 className="font-extrabold text-3xl lg:text-6xl text-center bg-[#48CAE4] p-2 lg:p-4 rounded-3xl text-white">
+        <h1 className="font-extrabold text-3xl lg:text-6xl text-center bg-gray-700 p-2 lg:p-4 rounded-3xl text-white">
           Cart is empty
         </h1>
       </div>

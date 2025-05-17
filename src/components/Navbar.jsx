@@ -36,7 +36,8 @@ export default function Navbar() {
   const { user } = useSelector((store) => store.sign_in_up);
 
   return (
-    <nav className="px-6 py-4 bg-[#48cae4]">
+    // <nav className="px-6 py-4 bg-[#48cae4]">
+    <nav className="px-6 py-4 bg-gray-700 text-white">
       <div className="flex items-center justify-between">
         <Link to="/">
           <div className="flex text-4xl  gap-6 lg:gap-2 lg:text-3xl">
@@ -67,7 +68,7 @@ export default function Navbar() {
             <Link to="favorites">
               <MdFavorite
                 className={`text-3xl ${
-                  favoriteList?.length > 0 ? `text-blue-600 ` : `text-black `
+                  favoriteList?.length > 0 ? `text-amber-300 ` : `text-black `
                 }`}
               />
             </Link>

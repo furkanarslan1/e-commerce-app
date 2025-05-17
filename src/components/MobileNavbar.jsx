@@ -8,7 +8,7 @@ import { Link } from "react-router";
 
 export default function MobileNavbar() {
   return (
-    <div className="flex items-center justify-around text-3xl bg-[#48CAE4] p-3">
+    <div className="flex items-center justify-around text-3xl bg-gray-700 text-white p-3">
       <Link to="/">
         <RiHomeSmile2Fill />
       </Link>

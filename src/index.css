@@ -43,7 +43,7 @@
 }
 
 .active {
-  background-color: #0096c7;
-  color: #fff;
-  font-weight: bold;
+  color: black;
+
+  font-weight: bolder;
 }

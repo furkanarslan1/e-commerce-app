@@ -10,7 +10,7 @@ export default function Favorites() {
   const { favoriteList = [] } = useSelector((store) => store.favorites);
 
   return (
-    <div className="py-2  px-1 md:px-6 md:py-4 min-h-screen">
+    <div className="py-2  px-1 md:px-6 md:py-4 min-h-screen ">
       <div className="flex items-center gap-4">
         <button
           onClick={() => navigate(-1)}

@@ -29,7 +29,7 @@ export default function UserInfoChange() {
   }
 
   return (
-    <div className="min-h-screen flex justify-center items-center  px-4 bg-gradient-to-r from-[#48CAE4] to-[#90E0EF]  py-8 mt-4 rounded-2xl text-sm md:text-xl ">
+    <div className="min-h-screen flex justify-center items-center  px-4 bg-gradient-to-r from-gray-800 to-gray-500 py-8 mt-4 rounded-2xl text-sm md:text-xl ">
       <div className="bg-white/10 backdrop-blur-xl border border-white/30 p-12 rounded-2xl shadow-2xl w-full max-w-md md:mb-20 text-white">
         <form
           className="flex flex-col items-center "

@@ -24,7 +24,7 @@ export default function UserInfo() {
 
   return (
     <div className=" py-8 h-min-screen flex  justify-center flex-col  relative">
-      <div className="flex flex-col gap-10 bg-gradient-to-r from-[#48CAE4] to-[#90E0EF] h-full w-full  p-8 text-white rounded-3xl items-center text-sm md:text-xl">
+      <div className="flex flex-col gap-10 bg-gradient-to-r from-gray-800 to-gray-500 h-full w-full  p-8 text-white rounded-3xl items-center text-sm md:text-xl">
         <div className="flex items-center gap-4">
           <div className="border-4 rounded-full p-4">
             <FaUserAlt className="text-6xl  p-1" />

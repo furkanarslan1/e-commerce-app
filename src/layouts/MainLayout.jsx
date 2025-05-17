@@ -72,8 +72,10 @@ export default function MainLayout() {
         </button>
         <div
           ref={scrollRef}
-          className="flex items-center bg-[#90e0ef] lg:px-1 py-4 overflow-x-auto whitespace-nowrap scroll-smooth no-scrollbar"
+          className="flex items-center bg-white lg:px-1 py-4 overflow-x-auto whitespace-nowrap scroll-smooth no-scrollbar"
         >
+          {/* //bg-[#90e0ef]  */}
+
           {categoryList &&
             categoryList.map((category) => (
               <div key={category.id}>

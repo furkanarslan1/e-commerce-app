@@ -30,7 +30,7 @@ export default function Products({ product }) {
 
   return (
     <Link to={`products/${id}`}>
-      <div className="hover:cursor-pointer text-sm">
+      <div className="hover:cursor-pointer text-sm ">
         <div className="flex flex-col justify-center items-center gap-2  ">
           <div className="flex flex-col items-center justify-center h-30 lg:h-80 mb-2">
             <img

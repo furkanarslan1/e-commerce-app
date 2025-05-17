@@ -1,13 +1,13 @@
 import React from "react";
-import { Link } from "react-router";
+import { Link, NavLink } from "react-router";
 
 export default function Categories({ category }) {
   const { slug } = category;
   return (
-    <Link to={`categories/${slug}`}>
+    <NavLink to={`categories/${slug}`}>
       <ul className="">
         <li className="md:w-30 lg:w-40 text-center">{category.name}</li>
       </ul>
-    </Link>
+    </NavLink>
   );
 }
